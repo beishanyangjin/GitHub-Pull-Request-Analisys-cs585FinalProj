@@ -46,7 +46,31 @@ def Repo_analyse():
     plt.xlabel('Individual_contributor')
     plt.ylabel('Num')
 
+def Repo_analyse2():
+    df = pd.read_csv("hdfs://master:9000/output/Repo_PR.csv", header=None)
+    df.columns = ['Repo_name','Author_name','Author_id','Individual_contributor','Pull_request','Average_len_comment','Language','median_time']
+    print(df.head(10))
 
+    plt.hist(df['Pull_request'], bins= 200)
+    plt.yscale('log')
+    plt.title('PullRequest_of_Repo_Distribution')
+    plt.xlabel('Pull_request')
+    plt.ylabel('Num')
+
+def contributor():
+    df = pd.read_csv("hdfs://master:9000/output/Most_active_actors.csv", header=None)
+    df.columns = ['actor_id', 'actor_login', 'countPR', 'length_of_comment']
+    lower = df.countPR.quantile(.05)
+    upper = df.countPR.quantile(.95)
+
+    df = df.clip(lower=lower, upper=upper)
+    print(df)
+    plt.hist(df['count'], bins=50)
+    plt.yscale('log')
+    plt.title('Number of PR per Contributer')
+    plt.xlabel('Number of PR per contributor')
+    plt.ylabel('Count')
+    plt.show()
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':

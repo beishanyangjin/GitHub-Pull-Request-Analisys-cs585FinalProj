@@ -3,19 +3,6 @@ import pandas as pd
 import math
 import numpy as np
 
-def languages():
-    df = pd.read_csv("C:/Users/marsa/Desktop/Masters/BigData/Most_common_languages.csv/10languages.csv", header=None)
-
-    p = figure(x_range=df[0], height=350, title="Most popular Languages",
-               toolbar_location=None, tools="")
-
-    p.vbar(x=df[0], top=df[2], width=0.9)
-
-    p.xgrid.grid_line_color = None
-    p.yaxis.axis_label = "Percent"
-    p.y_range.start = 0
-    show(p)
-
 def contributorCommentLength():
     df = pd.read_csv("hdfs://master:9000/output/Most_active_actors.csv", header=None)
     df.columns = ['actor_id', 'actor_login', 'count', 'length_of_comment']
@@ -56,6 +43,19 @@ def Repo_analyse2():
     plt.title('PullRequest_of_Repo_Distribution')
     plt.xlabel('Pull_request')
     plt.ylabel('Num')
+    
+def languages():
+    df = pd.read_csv("/Most_common_languages.csv/10languages.csv", header=None)
+
+    p = figure(x_range=df[0], height=350, title="Most popular Languages",
+               toolbar_location=None, tools="")
+
+    p.vbar(x=df[0], top=df[2], width=0.9)
+
+    p.xgrid.grid_line_color = None
+    p.yaxis.axis_label = "Percent"
+    p.y_range.start = 0
+    show(p)
 
 def contributor():
     df = pd.read_csv("hdfs://master:9000/output/Most_active_actors.csv", header=None)

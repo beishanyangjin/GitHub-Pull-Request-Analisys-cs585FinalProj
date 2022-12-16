@@ -14,7 +14,7 @@ Pull image
 docker pull s1mplecc/spark-hadoop:3
 ```
 
-start final/docker-compose.yml
+Start final/docker-compose.yml
 
 ```
 docker-compose up -d
@@ -39,7 +39,7 @@ $ hadoop jar share/bigdata-learning-0.0.1.jar example.mapreduce.WordCount /words
 $ spark-submit --master spark://master:7077 /opt/share/my_script.py
 ```
 
-##Run final project
+## Run final project
 
 Upload local file to HDFS
 

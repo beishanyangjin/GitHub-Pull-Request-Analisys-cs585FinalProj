@@ -1,4 +1,3 @@
-# import pandas as pd
 from pyspark import SQLContext
 from pyspark.sql.functions import col, substring
 from pyspark.sql import functions as F
@@ -85,21 +84,12 @@ if __name__ == '__main__':
     df1 = spark.read.csv(r"hdfs://master:9000/ghtorrent-2019-03-11.csv", escape = '"').toDF('actor_login','actor_id','comment_id','comment','repo','language','author_login','author_id','pr_id','c_id','commit_date')
     df2 = spark.read.csv(r"hdfs://master:9000/ghtorrent-2019-03-11.csv", escape = '"').toDF('actor_login','actor_id','comment_id','comment','repo','language','author_login','author_id','pr_id','c_id','commit_date')
     df = df1.union(df2)
-    # df = df.limit(1000)
-    #.toDF('actor_login','actor_id','comment_id','comment','repo','language','author_login','author_id','pr_id','c_id','commit_date')
-    #df = df.limit(1000)
-    #dfp2 = spark.read.csv("hdfs://master:9000/sampePR.csv").toDF('actor_login','actor_id','comment_id','comment','repo','language','author_login','author_id','pr_id','c_id','commit_date')
     #nonValidlines(df)
     #print(df)
 
     commit_time_analysis(df)
-    # commit_time(df)
-    # mostActiveAuthors(df)
-    # mostActiveContributers(df)
-    # repos(df)
-    # mostCommonLanguages(df)
-
-    # fileName = "C:/Users/marsa/Desktop/Masters/BigData/samplePR.csv"
-    #file = sc.textFile("C:/Users/marsa/Downloads/ghtorrent-2019-01-07.csv/samplePR.csv")
-    #counts = text_file
-    #counts.saveAsTextFile("same.cvs")
+    commit_time(df)
+    mostActiveAuthors(df)
+    mostActiveContributers(df)
+    repos(df)
+    mostCommonLanguages(df)

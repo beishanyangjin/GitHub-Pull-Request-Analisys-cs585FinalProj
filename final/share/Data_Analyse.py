@@ -82,4 +82,5 @@ if __name__ == '__main__':
     contributorCommentLength()
     Time_distir_analyse()
     Repo_analyse()
-
+    Repo_analyse2()
+    contributor()

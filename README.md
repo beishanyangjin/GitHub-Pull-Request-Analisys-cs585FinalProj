@@ -53,6 +53,12 @@ Run Spark application
 $ spark-submit --master spark://master:7077 /opt/share/PullRequests.py
 ```
 
+Run data analysis
+
+```sh
+$ Python /opt/share/Data_Analyse.py
+```
+
 ## Web UI summary
 
 | Web UI                      | Default website                 | Remark                                 |
